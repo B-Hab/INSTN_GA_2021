@@ -1,0 +1,140 @@
+\pdfminorversion=4
+\documentclass[usenames,dvipsnames]{beamer}
+%Pour impression des transparents sans animations
+%option trans (à préciser aussi dans les \only
+%\documentclass[trans]{beamer}
+%
+%Pour impression des transparents sur papier (pour les CRR)
+%\documentclass[handout]{beamer}
+%
+
+\usetheme{cea2019}
+
+\setbeamerfont{structure}{size=\small}
+\setbeamerfont{title page}{size=\Large,parent=structure}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries,parent=structure}
+\setbeamerfont{headline}{size=\small}
+\setbeamertemplate{bibliography item}[mybibitem]
+\setbeamerfont{bibliography entry author}{shape=\upshape,size=\tiny}%
+\setbeamerfont{bibliography entry title}{shape=\upshape,size=\tiny}
+\setbeamerfont{bibliography entry journal}{shape=\upshape,size=\tiny}
+\setbeamerfont{bibliography entry note}{shape=\upshape,size=\tiny}
+\setbeamerfont{itemize/enumerate body}{size=\footnotesize}
+\setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\scriptsize}
+\setbeamerfont{block body}{size=\footnotesize,parent={structure}}
+\setbeamerfont{block body alerted}{parent={block body}}
+\setbeamerfont{block body example}{parent={block body}}
+\setbeamerfont{block title}{size=\normalsize,series=\bfseries,parent={block body}}
+\setbeamerfont{section in head/foot}{size=\scriptsize,shape=\scshape,series=\bfseries}
+\setbeamerfont{subsection in head/foot}{shape=\upshape,parent={section in head/foot}}
+\setbeamerfont{section in toc}{parent=structure,series=\bfseries}
+\setbeamerfont{caption}{size=\scriptsize, parent=structure}
+
+\setbeamertemplate{caption}{\centering\insertcaption\par}
+\renewcommand{\emph}[1]{\textcolor{cea8}{\textit{#1}}}
+\bibliographystyle{apalike}
+
+
+\usepackage{tabularx}
+\newcommand{\n}{\tabularnewline}
+\newcolumntype{C}{>{\centering}X}
+\newcolumntype{R}{>{\raggedleft}X} 
+\newcolumntype{L}{>{\raggedright}X} 
+\newcolumntype{M}[1]{>{\centering}m{#1}}
+\usepackage{multirow}
+\newenvironment{legend}%
+{\tabular{r>{\small} l}}%
+{\endtabular}
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage{tikzsymbols}
+\usepackage{mhchem}
+\usepackage{wasysym}
+\usepackage{animate}
+\usepackage{multimedia}
+\usepackage{fourier-orns}
+
+\newcommand{\grad}[1]{\nabla #1}
+\renewcommand{\div}[1]{\nabla \cdot #1}
+\newcommand{\Lapl}[1]{\Delta #1}
+
+\newenvironment{remark}[1][\textit{Nota Bene}]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries \rule{1ex}{1ex} #1}]\ignorespaces}{\rule{1ex}{1ex} \end{trivlist}\ignorespacesafterend}
+
+%\usepackage[default,scale=0.85]{opensans} 
+%\usepackage{lmodern} 
+%
+\titre{\normalsize{Accidents graves des réacteurs nucléaires} \\ \Large{Comportement et rétention du corium en cuve d'un réacteur à eau légère}}
+\evenement{INSTN - GA - $\mu$-projet}
+\auteurs{\textit{Romain Le Tellier}, Louis Viot, Benoît Habert, CEA Cadarache \\ {\scriptsize \href{mailto:romain.le-tellier@cea.fr}{romain.le-tellier@cea.fr}, \href{mailto:louis.louis@cea.fr}{louis.louis@cea.fr}, \href{mailto:benoit.habert.fr}{benoit.habert@cea.fr}}}
+\datedocument{Mars 2020}
+\auteurprincipal{INSTN - GA - $\mu$-projet}
+%%
+\begin{document}
+
+%% TITLE PAGE %%
+\PageTitre{}
+%%
+
+%%%%%%%%
+\section{Objectifs pédagogiques}
+\Titre{Objectifs pédagogiques}
+\begin{frame}[fragile]
+\begin{itemize}
+\item Connaître les \emph{phénomènes physiques} déterminant vis-à-vis du comportement du \emph{corium dans le fond de cuve} et le niveau de connaissance associé
+\item Faire le lien entre ces phénomènes et un savoir de base en \emph{thermohydraulique, thermodynamique}
+\item Comprendre les \emph{modélisations} mises en \oe uvre dans les codes intégraux pour l'\emph{évaluation du risque de percement de la cuve} d'un réacteur à eau légère dans une \emph{stratégie de rétention du corium en cuve}
+\item Réaliser une telle \emph{évaluation}, \emph{en stationnaire}, puis \emph{en transitoire} avec, finalement, une évaluation des \emph{sensibilités à certains paramètres de modèles}
+\item Avoir une idée concrète des \emph{activités de R\&D menées au CEA} sur ce sujet
+\end{itemize}
+\end{frame}
+%%%%%%%%
+\section{Déroulement du $\mu$-projet}
+\Titre{Déroulement du $\mu$-projet}
+\begin{frame}[fragile]
+\begin{itemize}
+\item \emph{1$^{\text{ère}}$ séance ``encadrée''} : introduction à la stratégie de rétention du corium en cuve, phénoménologie d'un bain de corium ``à deux couches'' en configuration stationnaire, démarrage du TD associé
+\item \emph{1$^{\text{ère}}$ séance ``libre''} : réalisation du TD, rédaction
+\item \emph{2$^{\text{ème}}$ séance ``encadrée''} : discussion sur le TD, phénoménologie d'un bain de corium en transitoire, introduction au code PROCOR, premier calcul avec PROCOR
+\item \emph{3$^{\text{ème}}$ séance ``encadrée''} : suite des calculs avec PROCOR, introduction au calcul statistique avec PROCOR/URANIE
+\item \emph{2$^{\text{ème}}$ séance ``libre''} : analyse d'un calcul statistique avec PROCOR/URANIE, rédaction
+\item \emph{Rédaction}
+\item \emph{Soutenance}
+\end{itemize}
+\end{frame}
+%%
+
+%%%%%%%%
+%\setbeamertemplate{background canvas}[annexe]
+\section*{Sommaire}
+%\Titre{Sommaire}
+\begin{frame}[fragile]
+\frametitle{Sommaire}
+  \linespread{0.85}
+  \tableofcontents[sectionstyle=hide/show, subsectionstyle=hide/show/show,sections={3-}, firstsection=3]
+  \linespread{1}
+\end{frame}
+%\setbeamertemplate{background canvas}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{part1.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{part2.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{part3.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DernierePage{}
+\Annexes
+\section*{Références}
+\Titre{Références}
+\begin{frame}[fragile,allowframebreaks]
+  \bibliography{../References/lma-jabref}
+\end{frame}
+%%
+\end{document}
+%% definition du dictionnaire local
+<!-- Local IspellDict: francais -->
