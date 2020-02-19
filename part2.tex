@@ -49,7 +49,7 @@ Mais avant de parler de ``thermochimie'', revenons d'abord au \emph{comportement
 \begin{frame}[fragile]
 \begin{itemize}
 \item Sans le dire, en assimilant le transfert de chaleur vers le haut à celui d'une cavité de Rayleigh-Bénard, on a considéré : \\
-\emph{condition inhomogène de transfert radiatif} $\Leftrightarrow$ condition uniforme $T_{up}^{met}$ imposée telle que $\phi_{up}^{BC}\left[T_{up}^{met}\right] = \phi_{up}^{met}\left[T^{met}-T_{up}^{met}\right]$ avec $\phi^{BC}_{up}\left[T^{met}_{up}\right]=\varepsilon_{up}\sigma\left(\left(T^{met}_{up}\right)^4-\left(T^{BC}\right)^4\right)$
+\emph{condition inhomogène de transfert radiatif} $\Leftrightarrow$ condition uniforme $T_{up}^{met}$ imposée telle que $\phi_{up}^{BC}\left(T_{up}^{met}\right) = \phi_{up}^{met}\left(T^{met}-T_{up}^{met}\right)$ avec $\phi^{BC}_{up}\left(T^{met}_{up}\right)=\varepsilon_{up}\sigma\left(\left(T^{met}_{up}\right)^4-\left(T^{BC}\right)^4\right)$
 \item \emph{Impact de l'inhomogénéité de la condition en limite haute ?}
 \item \emph{Etude} paramétrique par \emph{simulations CFD} (code libre \includegraphics[width=1cm]{Figures/Logo_TrioCFD.eps} développé au CEA) sur la géometrie parallépipédique des essais BALI-Metal (voir \cite{Peybernes2020})
 \begin{itemize}
@@ -307,26 +307,24 @@ Passons maintenant à la \emph{``thermochimie''} {\scriptsize $\left(U_y,Zr_{1-y
       \item \emph{transfert de masse interfacial} $\rightarrow$ transitoire \textcolor{OliveGreen}{(1)} : U et Zr vers l’acier \\
       {\tiny (décalage à droite de \ce{ UO_2 + Zr <=> ZrO_2 + U } dans l'oxyde à l’interface)}
       \item transport de masse intra-phase
-      \item ``inversion'' de $\rho_{oxy} \lessgtr \rho_{met}$ $\rightarrow$ \emph{instabilité de Rayleigh-Taylor}
-      \item mouvement hydrodynamique d'inversion de la position des phases
+      \item ``inversion'' de $\rho_{oxy} \lessgtr \rho_{met}$ $\rightarrow$ \emph{mouvement hydrodynamique, instabilité de Rayleigh-Taylor}
       \end{itemize}
       \item Deux \emph{cinétiques combinées} : ordres de grandeur pour \textcolor{OliveGreen}{(1)} :
       \begin{itemize}
-\item transport de masse intra-phase : $\tau_m = \frac{H^2}{D} \frac{1}{Sh}$ (masse $\Leftrightarrow$ $\tau_h = \frac{H^2}{\alpha} \frac{1}{Nu}$ chaleur) \\
-dans le métal, pour $H=5cm$, $Gr\approx4\times 10^{7}$, $Nu\approx10$ (\textit{cf.} TD) \\
-en considérant $D=5\times 10^{-9}$m$^2$.s$^{-1}$, $Sh/Nu\approx80$ $\rightarrow$ \emph{$\tau_m \approx 10$min}
+\item transport de masse intra-phase : {\tiny $\tau_m = \frac{H^2}{D} \frac{1}{Sh}$ (masse $\Leftrightarrow$ $\tau_h = \frac{H^2}{\alpha} \frac{1}{Nu}$ chaleur) \\
+dans le métal : $H=5cm$, $Gr\approx 4.10^{7}$, $Nu\approx10$ (\textit{cf.} TD), $D=5.10^{-9}$m$^2$.s$^{-1}$, $Sh/Nu\approx80$ $\rightarrow$} \emph{$\tau_m \approx 10$min}
 \item vitesse terminale de goutte pour l'instabilité de Rayleigh-Taylor $\rightarrow$ \emph{$\sim 10s.m^{-1}$}
       \end{itemize}
       \hskip -0.5cm $\rightarrow$ \emph{Transport intra-phase bien plus lent que mouvement hydrodynamique}
 \end{itemize}
-    \end{frame}
-    \begin{frame}
-    
-      \emph{\small Observations expérimentales indirectes :}
-      \begin{itemize}
-      \item Essais à \emph{``petite échelle''} : équilibre atteint en \emph{moins de 20'}, \emph{mouvement ``en bloc''} et très rapide à l'inversion des phases
-      \item \emph{Une seule expérience de plus grande échelle} (MASCA-RCW) stoppée au bout de 22' \\ ($\diameter \le 18$cm et $m_{oxy} \approx 45$kg et $x_{steel}\approx 0.1$) - transitoire \textcolor{OliveGreen}{(1)}
-      \begin{columns}
+\end{frame}
+\begin{frame}
+
+  \emph{\small Observations expérimentales indirectes :}
+  \begin{itemize}
+  \item Essais à \emph{``petite échelle''} : équilibre atteint en \emph{moins de 20'}, \emph{mouvement ``en bloc''} et très rapide à l'inversion des phases
+  \item \emph{Une seule expérience de plus grande échelle} (MASCA-RCW) stoppée au bout de 22' \\ ($\diameter \le 18$cm et $m_{oxy} \approx 45$kg et $x_{steel}\approx 0.1$) - transitoire \textcolor{OliveGreen}{(1)}
+  \begin{columns}
 \begin{column}{0.65\textwidth}
 \vskip 0.5\baselineskip
 \includegraphics[width=\textwidth]{Figures/rcw.png}
