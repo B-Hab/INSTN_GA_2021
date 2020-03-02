@@ -81,6 +81,28 @@ On se concentrera ici sur la question du \emph{comportement du corium en cuve}
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\begin{itemize}
+\item \emph{Chargement thermique sur la cuve} à comparer, en premier lieu, au \emph{flux critique}
+\item Nombreuses expériences (à diverses échelles) pour caractériser ce flux critique $rightarrow$ une ``diversité'' de valeurs associée, en particulier, à des effets locaux (chimie de l'eau et état de surface de la cuve) et un profil selon la position le long de la cuve
+\begin{columns}
+\begin{column}{0.75\textwidth}
+\begin{figure}[H]
+\centering \includegraphics[width=1.0\textwidth]{Figures/Tab_Atkhen2020.png}
+\caption{\tiny Différentes corrélations de flux critiques (Tableau tiré de \cite{Atkhen2020}}
+\end{figure}
+\end{column}
+\begin{column}{0.25\textwidth}
+\begin{figure}[H]
+\centering \includegraphics[width=1.0\textwidth]{Figures/ulpu.eps}
+\caption{\tiny Corrélation ULPU appliqué à un fond de cuve en calotte sphérique}
+\end{figure}
+\end{column}
+\end{columns}
+\item Le \emph{flux critique dans la partie haute de la cuve $\sim$ 1.5-2.5 MW.m$^2$}
+\end{itemize}
+\end{frame}
+
 %%%%%%%%
 \section{Le corium en fond de cuve: version simple}
 \Intercalaire{Le corium en fond de cuve: version simple}
@@ -276,12 +298,12 @@ Deux configurations d'\emph{écoulements en convection naturelle} :
 \end{tabular}
 \end{minipage}
 \begin{itemize}
-\item Solidification d'un \emph{matériau multicomposant} potentiellement \emph{compliquée} ... 
+\item Solidification d'un \emph{matériau multicomposant} potentiellement \emph{compliquée} \dots
 \end{itemize}
 \end{frame}
 \begin{frame}[fragile]
 \begin{itemize}
-\item ... corium $\left(U_y,Zr_{1-y}\right)O_{2-x}$ : le plus souvent, les \emph{hypothèses simplificatrices} suivantes :
+\item \dots corium $\left(U_y,Zr_{1-y}\right)O_{2-x}$ : le plus souvent, les \emph{hypothèses simplificatrices} suivantes :
 \begin{itemize}
   \item un \emph{front de solidification à l'équilibre thermodynamique} $\rightarrow$ phase solide formée associée $\left(U_{y'},Zr_{1-y'}\right)O_{2-x'}$ à la température de liquidus du liquide à l'interface 
   \item \emph{variations de composition négligées} (liquide homogène et $x'=x$, $y'=y$)
@@ -365,12 +387,12 @@ Deux configurations d'\emph{écoulements en convection naturelle} :
   \item ainsi, on peut travailler en nombre de \emph{Rayleigh interne} $Ra_i=\frac{g\left(H_u\right)^5\emph{q}\beta}{\lambda\nu\alpha}$ : \\
   $Nu^{RB}_{up} = a \times Ra^b Pr^c \Longleftrightarrow Nu^{KE}_{up} = 2a^{\frac{1}{b+1}} \times Ra_i^{\frac{b}{b+1}} Pr^{\frac{c}{b+1}}$
 \end{itemize}
-\item Pour l'\emph{échange latéral} (surface sphéro\"{\i}de), la \emph{transposition est moins évidente} ...
+\item Pour l'\emph{échange latéral} (surface sphéro\"{\i}de), la \emph{transposition est moins évidente} \dots``
 \end{itemize}
 \end{frame}
 \begin{frame}[fragile]
 \begin{itemize}
-\item ... de nombreuses \emph{expériences} ont été menées sur des  \emph{``géometries fond de cuve''} à échelle réduite avec différents matériaux simulants
+\item \dots de nombreuses \emph{expériences} ont été menées sur des  \emph{``géometries fond de cuve''} à échelle réduite avec différents matériaux simulants
 \begin{columns}[T]
     \begin{column}{0.72\textwidth}
       \includegraphics[height=0.8\textheight]{Figures/Tab3_Zhang2015.eps} \\
@@ -399,9 +421,25 @@ Deux configurations d'\emph{écoulements en convection naturelle} :
     \end{column}
 \end{columns}
 {\tiny (Figures tirées de \cite{Zhang2015})}
-% \item ... mais pas une source majeure d'incertitude pour l'évaluation de l'IVR
+ \item \dots \emph{mais pas une source majeure d'incertitude} pour l'évaluation de l'IVR \dots 
 \end{itemize}
-\vskip -\baselineskip
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item En plus du flux moyen sur la surface latéral, on s'intéresse aussi au \emph{profil de flux}
+\begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+\centering \includegraphics[width=1.0\textwidth]{Figures/phi_oxy_theta.eps}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+    \begin{itemize}
+      \item un \emph{facteur de l'ordre 2} entre maximum de flux en partie haute et flux moyen
+      \item une disparité des résultats expérimentaux suivants les fluides simulants et les conditions aux limites
+    \end{itemize}
+    \end{column}
+\end{columns}
+\end{itemize}
 \begin{columns}[T]
     \begin{column}{0.4\textwidth}
 \begin{itemize}
@@ -443,5 +481,5 @@ Deux configurations d'\emph{écoulements en convection naturelle} :
     \end{column}
 \end{columns}
 \vskip \baselineskip
-\textit{cf.} description TD et notebooks Jupyter \\ {\scriptsize (\href{https://mybinder.org/v2/gh/niamorelreillet/INSTN-GA-micro-projet.git/master?urlpath=lab}{https://mybinder.org/v2/gh/niamorelreillet/INSTN-GA-micro-projet.git/master?urlpath=lab})}
+\textit{cf.} description TD et notebooks Jupyter \\ {\scriptsize en local dans $\sim$/projet\_GA/seance1/TD} \\ {\scriptsize en ligne à \href{https://mybinder.org/v2/gh/niamorelreillet/INSTN-GA-micro-projet.git/master?urlpath=lab}{https://mybinder.org/v2/gh/niamorelreillet/INSTN-GA-micro-projet.git/master?urlpath=lab}}
 \end{frame}

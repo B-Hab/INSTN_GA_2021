@@ -125,7 +125,7 @@
 \begin{abstract}[french]
 %   Resum\'e en fran\c{c}ais
 Dans ce TD, on se propose d'évaluer, à partir des hypothèses et fermetures classiquement utilisées dans les codes de calculs, la répartition de la puissance et du flux de chaleur aux interfaces d'un bain de corium dans une configuration stationnaire à deux couches: une phase oxyde qui porte toute la puissance résiduelle en-dessous d'une phase métallique. La phase oxyde est entourée d'une croûte réfractaire tandis que la phase métallique est en contact direct avec la paroi de la cuve en fusion. Il s'agit d'une adaptation de la configuration évaluée pour le réacteur AP1000 \cite{Esmaili2004} et reprise dans la série de benchmarks de \cite{Carenini2019}.
-Pour faciliter la réalisation de ce TD (en particulier, les questions des \Sects{rad}{param} qui ne peuvent pas être traitées analytiquement), il est accompagné de notebooks Jupyter (voir \href{https://mybinder.org/v2/gh/niamorelreillet/INSTN-GA-micro-projet.git/master?urlpath=lab}{https://mybinder.org/v2/gh/niamorelreillet/INSTN-GA-micro-projet.git/master?urlpath=lab}).
+Pour faciliter la réalisation de ce TD (en particulier, les questions des \Sects{rad}{param} qui ne peuvent pas être traitées analytiquement), il est accompagné de notebooks Jupyter (en local dans $\sim$/projet\_GA/seance1/TD et en ligne à \href{https://mybinder.org/v2/gh/niamorelreillet/INSTN-GA-micro-projet.git/master?urlpath=lab}{https://mybinder.org/v2/gh/niamorelreillet/INSTN-GA-micro-projet.git/master?urlpath=lab}).
 \end{abstract}
 % \selectlanguage{english}
 % \begin{abstract}
@@ -147,6 +147,8 @@ Trois notebooks accompagnent ce TD :
  \item \texttt{TD\_template.ipynb}, le ``canevas'' du TD à remplir en suivant les questions de l'énoncé ci-dessous;
  \item \texttt{TD.ipynb}, le TD complété \dots à n'ouvrir qu'à la fin bien sûr !
 \end{itemize}
+
+En local (dans $\sim$/projet\_GA/seance1/TD), pour lancer l'environnement Jupyter, éxécuter le script jupyter.sh
 
 \section{Configuration, hypothèses, notations} \label{sect:sci}
 
@@ -208,6 +210,7 @@ On cherche à calculer la température moyenne et la distribution de puissance e
 \Q{Calculer le nombre de Nusselt associé à l'échange supérieur \(Nu^{ox}_{up}\) à partir de la corrélation ``BALI haut'' (\textit{cf.} \cite{Bonnet1999}) \(Nu^{ox}_{up}=0.381\left(Ra_i^{ox}\right)^{0.234}\)}
 \Q{Calculer \(T^{ox}\)}
 \Q{Calculer \(\phi_{lat}^{ox}\) et \(\phi_{up}^{ox}\) ainsi que la répartition de la puissance}
+\Q{A partir de \(\phi_{lat}^{ox}\), évaluer le maximum local de flux et le comparer à la valeur (pessimiste) de 1.5MW.m$^2$ du flux critique associé au refroidissement externe}
 
 \section{Couche métallique supérieure}
 
@@ -241,13 +244,13 @@ La résolution ne peut plus se faire de manière analytique.
 
 \Q{Formaliser le problème à résoudre (deux équations, deux inconnues \(\left(T^{met},T_{up}^{met}\right)\)) et décrire l'algorithme que vous implémenteriez pour en trouver la solution}
 
-\begin{remark} Pour la suite, l'accès aux notebooks Jupyter associé à ce TD est indispensable. Si ça n'est pas possible, une démonstration d'une telle résolution numérique sera faite et les résultats discutés. \end{remark}
+%\begin{remark} Pour la suite, l'accès aux notebooks Jupyter associé à ce TD est indispensable. Si ça n'est pas possible, une démonstration d'une telle résolution numérique sera faite et les résultats discutés. \end{remark}
 
 \Q{En considérant $\varepsilon_{up} = 0.38$ et $T^{BC}=950$K, évaluer \(T^{met}\), \(T_{up}^{met}\), \(\phi_{lat}^{met}\) et \(\phi_{up}^{met}\)}
 
 \subsection{Etudes paramétriques} \label{sect:param}
 
-En considérant le cas avec transfert radiatif, on peut faire varier $\varepsilon_{up}$, $T^{BC}$ dans un premier temps, $H^{met}$ dans un second temps pour voir comment ça se comporte.
+En considérant le cas avec transfert radiatif, on peut faire varier $\varepsilon_{up}$, $T^{BC}$ dans un premier temps, $H^{met}$ dans un second temps pour voir comment ça se comporte. Discuter de ces résultats vis-à-vis de la valeur (pessimiste) de 1.5MW.m$^2$ du flux critique associé au refroidissement externe.
 
 \section*{Références}
 
