@@ -142,12 +142,13 @@ Dans un premier temps, il s'agira de comprendre les différents cas de test prop
 \section{Étude des cas de test du benchmark}
 
 \subsection{Présentation des cas de test}
-Les cas 1,2 et 3 du benchmark sont présentés dans la Fig.~\ref{fig:TD_benchmark}. Pour chacun des cas, différentes coulées et différentes options de modélisation sont choisies. 
+Les cas 1,2 et 3 du benchmark sont présentés dans la Fig.~\ref{fig:TD_benchmark}. Pour chacun des cas, différentes coulées et différentes options de modélisation sont choisies.
 \begin{figure}[H]
   \centering \includegraphics[width=\textwidth]{../Figures/TD_benchmark.pdf}
 	\label{fig:TD_benchmark}
   \caption{Configurations initiale ($t_0$) et durant le transitoire ($t_1$ et $t_2$) pour les cas 1, 2 et 3 du benchmark.}
-\end{figure}
+\end{figure} Dans tous les cas, la configuration initiale correspond à un bain oxyde en dessous d'une couche d'acier liquide. Un transfert radiatif (avec une émissivité $\epsilon$) par la surface supérieure de la couche d'acier liquide est imposé comme condition limite supérieure de cette couche. En plus des coulées `extérieures` correspondant à la fonte des structures internes du réacteur, des coulées $\dot{m}^{\text{cuve}}$ associées à l'ablation de la cuve par le bain de corium sont ajoutées au bain de corium et viennent modifier son inventaire en espèces chimiques.
+
 Les conditions initiales à $t_0$ sont :
 \begin{itemize}
 	\item Masse de la couche oxyde :
@@ -219,18 +220,22 @@ Elles peuvent être analysées via l'outil Scilab. Celui ci peut être lancé vi
 \end{itemize}
 
 \subsection{Étude du cas 1}
-\Q{Observer le transitoire de $\bar{\phi}^{oxy}_{up}$, le flux de chaleur moyen par la surface supérieure du bain oxyde.}
-\Q{Observer le transitoire de $T_{met,FE}^{liq}$, la température moyenne de la couche d'acier liquide.}
+\Q{Observer et expliquer le transitoire de $\bar{\phi}^{oxy}_{up}$, le flux de chaleur moyen par la surface supérieure du bain oxyde.}
+\Q{Observer et expliquer le transitoire de $T_{met,FE}^{liq}$, la température moyenne de la couche d'acier liquide.}
+\Q{Observer et expliquer le transitoire de l'épaisseur $h^{liq.}_{met,FE}$ de la couche d'acier liquide.}
 \Q{Expliquer le transitoire de $\bar{\phi}^{met,FE}_{lat}$, le flux de chaleur moyen par la surface latérale de la couche d'acer liquide.}
-\Q{Expliquer le transitoire des flux de chaleur imposés sur la paroie interne de la cuve et leur impact sur l'épaisseur de la cuve.}
-\Q{Observer l'épaisseur $h^{liq.}_{met,FE}$ de la couche d'acier liquide.}
+\Q{Expliquer l'augmentation de $h^{liq.}_{met,FE}$ lorsque $\bar{\phi}^{met,FE}_{lat}$ augmente.}
+À ce stade, il est important de comprendre l'intéraction entre $h^{liq.}_{met,FE}$ et $\bar{\phi}^{met,FE}_{lat}$.
+\Q{Expliquer le transitoire des flux de chaleur imposés à différentes altitudes (notée $z$) de la paroie interne de la cuve et leur impact sur l'épaisseur de la cuve.}
 Suites à ces questions, le temps auquel le flux de chaleur par la surface latérale de la couche d'acier liquide sera maximal peut être déduit.
 \Q{Relever graphiquement cette valeur et la comparer au flux stationnaire $\phi^{met}_{lat}$ calculé au TD1.}
 \Q{Dans le fichier d'entrées du benchmark, faire varier l'émissivité de la couche d'acier liquide. Expliquer son impact sur le focusing effect.}
 
-\subsection{Étude du cas 2}
+\subsection{Étude du cas 2 et 3}
+Pour ces cas, les coulées venant des structures internes du réacteur ainsi que les options de modélisation sont différentes. Le transitoire suivi par le bain de corium ainsi que le transitoire d'ablation de la cuve sont donc différents.
 
-\subsection{Étude du cas 3}
+\Q{En suivant le même démarche que pour le cas 1, expliquer le flux maximal imposé par la couche d'acier liquide.}
+\Q{Relever ce flux maximal et le comparer au flux stationnaire calculer lors du TD1.}
 
 \section{Étude statistique}
 
