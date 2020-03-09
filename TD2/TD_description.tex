@@ -176,10 +176,10 @@ Des coulées $\dot{m}^{\text{struct}}$, corresondant à la fonte des éléments 
 	\item \emph{Cas n$^{\circ}$3:} $\dot{m}^{\text{struct}}(t) = 5\text{kg.s}^{-1} \text{ pour } 800\leq t\leq 4800$
 \end{itemize}
 
-La stratification du bain de corium peut ou non être calculée : 
+La stratification du bain de corium peut ou non être calculée avec des options de modélisation différentes : 
 \begin{itemize}
 		\item \emph{Cas n$^{\circ}$1 et 2:} pas de stratification dans le bain sous la croûte, une seule couche oxyde;
-		\item \emph{Cas n$^{\circ}$3:} stratification du bain en \emph{métal lourd/oxyde} suite à la 1\iere{} coulée puis en \emph{oxyde/métal léger} suite à la 2\ieme{} coulée.
+		\item \emph{Cas n$^{\circ}$3:} stratification du bain en \emph{métal lourd/oxyde} suite à la 1\iere{} coulée puis en \emph{oxyde/métal léger} suite à la 2\ieme{} coulée. De plus, on suppose que le métal léger se forme au dessus de la croûte axiale (on ne sépare pas la couche d'acier liquide et de métal léger).
 \end{itemize}
 
 \subsection{Lancement et analyse des cas de test}
@@ -205,7 +205,7 @@ Les différents fichiers correspondent à :
 \end{itemize}
 Les cas de test du benchmark peuvent être lancés via :
 \begin{itemize}
-\item \texttt{./benchmarkLauncher.sh AP1000Benchmark data/ ap1000\_benchmark\_parameter\_input\_file.txt output/}
+\item \texttt{./benchmarkLauncher.sh data/ ap1000\_benchmark\_parameter\_input\_file.txt output/}
 \end{itemize}
 Les sorties PROCOR dans \texttt{output/} sont :
 \begin{itemize}

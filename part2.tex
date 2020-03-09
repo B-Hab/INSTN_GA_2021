@@ -420,93 +420,11 @@
 	\item \emph{Identifier} les paramètres influents sur l'évaluation du risque de percement de la cuve.
 	\end{itemize}
 \end{frame}
-\Titre{Calculs transitoires avec la plateforme PROCOR : description des cas de test du benchmark}
-\begin{frame}[fragile]
-	\begin{columns}
-	\column{0.45\textwidth}
-	\begin{figure}
-	\centering \includegraphics[width=0.75\textwidth]{Figures/cas_benchmark_ivmr.eps} \caption{\tiny Configuration initiale des cas de test et différents transferts de masse $\dot{m}(t)$ au cours du transitoire}
-	\end{figure}
-	\begin{itemize}
-		\item {\tiny\emph{Cas n$^{\circ}$1 :} mUO$_2$ = 59.6t,  mZR = 6.58t, mZRO$_2$ = 15t}
-		\item {\tiny\emph{Cas n$^{\circ}$2 et 3 :} mUO$_2$ = 68t,  mZR = 7.5t, mZRO$_2$ = 17t}
-		\item {\tiny\emph{Cas n$^{\circ}$1:} mCr = 7.2t,  mNi = 2.7t, mFe = 27.7t}
-		\item {\tiny\emph{Cas n$^{\circ}$2:} mCr = 5.7t,  mNi = 2.2t, mFe = 22.1t}
-		\item {\tiny\emph{Cas n$^{\circ}$3:} mCr = 1.9t,  mNi = 0.7t, mFe = 7.4t}
-	\end{itemize}
-	\column{0.55\textwidth}
-	\begin{itemize}
-		\item $\dot{m}^{\text{croûte}}$ = transfert de masse par thermochimie au travers de la croûte horizontale:
-			\begin{itemize}
-				\item \emph{Cas n$^{\circ}$1 :} $\dot{m}^{\text{croûte}} = 0$
-				\item \emph{Cas n$^{\circ}$2 et 3 :} $\dot{m}^{\text{croûte}} > 0$
-			\end{itemize} 
-		\item $\dot{m}^{\text{struct}}$ = masse venant de la fonte des structures internes de la cuve :
-			\begin{itemize}
-				\item \emph{Cas n$^{\circ}$1, 2 et 3:} {\tiny $\dot{m}^{\text{struct}}(t) = 6\text{kg.s}^{-1} \text{ pour } 6000\leq t\leq 9000$}
-				\item \emph{Cas n$^{\circ}$3:} 
-					{\tiny $\dot{m}^{\text{struct}}(t) = 5\text{kg.s}^{-1} \text{ pour } 800\leq t\leq 4800$}
-			\end{itemize}
-		\item Stratification du bain :
-			\begin{itemize}
-					\item \emph{Cas n$^{\circ}$1 et 2:} pas de stratification dans le bain sous la croûte, une seule couche oxyde;
-					\item \emph{Cas n$^{\circ}$3:} stratification du bain en \emph{métal lourd/oxyde} suite à la 1\iere{} coulée puis en \emph{oxyde/métal léger} suite à la 2\ieme{} coulée.
-			\end{itemize}
-	\end{itemize}
-	\end{columns}
-\end{frame}
-\Titre{Calculs transitoires avec la plateforme PROCOR : lancement des calculs (1)}
-\begin{frame}[fragile]
-Arborescence du répertoire des entrées et sorties du benchmark :
-\dirtree{%
-.1 .
-.2 benchmarkLauncher.sh.
-.2 appScilab.sh.
-.2 data.
-.3 vessel\_steel\_properties/.
-.3 ap1000\_lower\_head\_application\_parameter\_input\_file.txt.
-.3 ap1000\_benchmark\_parameter\_input\_file.txt.
-.2 output.
-}
-\begin{itemize}
-	\item \texttt{benchmarkLauncher.sh} : \emph{script de lancement du benchmark PROCOR} utilisant l'application fond de cuve PROCOR pour chaque cas de test;
-	\item \texttt{appScilab.sh} : \emph{script de lancement de l'outil Scilab} permettant de tracers les courbes des sortes PROCOR;
-	\item \texttt{vessel\_steel\_properties} : propriétés physique de l'acier de cuve;
-	\item \texttt{ap1000\_lower\_head\_appication\_parameter\_input\_file.txt} : fichier d'entrées de l'application fond de cuve PROCOR (\emph{ne devrait pas être modifié});
-	\item \texttt{ap1000\_benchmark\_parameter\_input\_file.txt} : \emph{fichier d'entrées du benchmark permettant de surcharger des entées de l'application fond de cuve et/ou du benchmark};
-	\item les sorties seront dans \texttt{output}.
-\end{itemize}
-\end{frame}
-\Titre{Calculs transitoires avec la plateforme PROCOR : lancement des calculs (2)}
-\begin{frame}[fragile]
-Description des \emph{entrées du benchmark disponbles et modifiables} dans le fichier \texttt{ap1000\_benchmark\_parameter\_input\_file.txt} :
-\begin{itemize}
-\item À définir.
-\end{itemize}
-\end{frame}
-\Titre{Calculs transitoires avec la plateforme PROCOR : lancement des calculs (3)}
-\begin{frame}[fragile]
-Lancement du benchmark via :
-\begin{itemize}
-\item \texttt{./benchmarkLauncher.sh AP1000Benchmark data/ ap1000\_benchmark\_parameter\_input\_file.txt output/}
-\end{itemize}
-Sorties PROCOR dans \texttt{output/}:
-\begin{itemize}
-\item fichiers \texttt{*.csv} contenant les données temporelles des différents modèles de l'application fond de cuve;
-\item fichiers \texttt{*.png} permettant une visualisation `grossière` du fond de cuve au cours du temps;
-\item fichiers \texttt{VTK/*.vtk} permettant une visualisation à l'aide du logiciel PARAVIEW;
-\end{itemize}
-Lancement de scilab pour l'interprétation ds résultats via :
-\begin{itemize}
-\item \texttt{./appScilab.sh -aTransientInLowerHead masses temperatures ...}
-\item Les arguments \texttt{masses temperatures ...} indiquent au script les courbes à tracer. Les courbes disponibles sont : \texttt{masses, mass\_fractions, heights, temperatures, powers, heat\_fluxes, vessel, water}
-\end{itemize}
-\end{frame}
-\Titre{Calculs transitoires avec la plateforme PROCOR : démo sur le cas n$^{\circ}$1}
+\Titre{TD 2 : calculs transitoires avec la plateforme PROCOR}
 \begin{frame}[fragile]
 \begin{itemize}
 \item Démo sur le cas n$^{\circ}$1;
 \item Les cas n$^{\circ}$2 et 3 seront vus en séance prochaine;
-\item Dans le TD 2, une analyse statistique sur les données d'entrées du cas n$^{\circ}$3 sera faite.
+\item Une analyse statistique sur les données d'entrées du cas n$^{\circ}$3 sera faite.
 \end{itemize}
 \end{frame}
