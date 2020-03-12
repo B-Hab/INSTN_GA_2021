@@ -238,6 +238,43 @@ Pour ces cas, les coulées venant des structures internes du réacteur ainsi que
 \Q{Relever ce flux maximal et le comparer au flux stationnaire calculer lors du TD1.}
 
 \section{Étude statistique}
+L'étude statistique à mener se base sur le cas 3 présenté pendant la séance 2.\\
+
+Un choix de paramètres d'entrée à probabiliser (i.e. à considérer comme des variables aléatoires) a été réalisé \textit{a priori}. Ces paramètres sont : 
+
+\begin{itemize}
+	\item le facteur de flux critique (variable \texttt{chff} dans les calculs) qui est un facteur multiplicatif du flux critique choisi; 
+	\item un facteur de répartition de la puissance résiduelle dans les couches oxyde ou métallique (variable \texttt{ffm} dans les calculs); 
+	\item la diffusivité de l'Uranium (variable \texttt{D\_U} dans les calculs) qui va influer sur la cinétique de stratification.
+\end{itemize}
+
+Pour une question de temps de calcul, les résultats de calculs sont fournis dans le répertoire \texttt{results} qui contient les répertoires de chaque calcul effectué et un fichier \texttt{*.dat} qui contient un tableau avec les valeurs de tous les paramètres d'entrée et de sortie. Ce fichier peut être exploité par \texttt{URANIE} via \texttt{ROOT}.\\
+
+L'outil de post-traitement peut être lancé via :
+\begin{itemize}
+    \item \texttt{root -l}
+    \item puis en chargeant \texttt{URANIE} avec : \texttt{.x ../../procor/statistics/C/procor-statistics/macros/rootlogon.C} et des macros avec : \texttt{.L ../../procor/statistics/C/procor-statistics/macros/TDataServerTools.C}
+    \item \texttt{t = viewTree("*.dat")}
+\end{itemize}
+
+
+\Q{En utilisant \texttt{ROOT}, vérifier que l'échantillonnage des 3 variables d'entrée correspond aux lois définies dans le fichier \texttt{*.uranie} du répertoire \texttt{data}.}
+
+\Q{Tracer l'histogramme du paramètre de sortie \texttt{tr} qui correspond au temps de rupture de la cuve. Identifier des "familles" de résultats.}
+
+\Q{Calculer la probabilité de percemment pour cette étude en modifiant les fichiers \texttt{*.uranie} du répertoire \texttt{data} et en relance l'outil statistique de procor avec le script \texttt{launcher_stat.sh}.}
+
+\Q{Relever les ratios de corrélation calculés et définir de nouvelles conditions de calcul (pour une "famille" de résultat identifié plus haut) pour les recalculer. Faire l'interprétation de ces valeurs (on pourra s'appuyer sur le tracé des paramètres d'entrée en fonction de \texttt{tr}.}
+
+
+\Q{Choisir un cas par famille identifiée. Pour cela, utiliser la commande \texttt{t->scan("","\text{condition}"}. Lancer le calcul de chacun de ces cas afin de récupérer l'ensemble des résultats (en particulier les fichier CSV) en changeant la verbosité de \texttt{low} à \texttt{high}. Expliquer l'"histoire" de chaque famille et ce qui la caractérise.}
+
+
+
+
+
+
+
 
 \section*{Références}
 
